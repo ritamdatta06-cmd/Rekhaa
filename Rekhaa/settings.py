@@ -24,9 +24,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+bb93r43_z9(jei+h$n17cm=&vzk*kxozj$54sl-*8m8e3o^n^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# settings.py
+ALLOWED_HOSTS = ["rekhaa-production.up.railway.app", ".up.railway.app"]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://rekhaa.up.railway.app',
+]
+
+
+# Railway serves your app behind a proxy, so Django needs to know the original request was HTTPS
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # Application definition
